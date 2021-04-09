@@ -1,0 +1,5 @@
+terraform init
+terraform validate
+terraform plan -out jenkins.tfplan
+terraform apply "jenkins.tfplan"
+terraform destroy
