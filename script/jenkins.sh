@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-echo "BUILT-RHEL8_EC2"
-#sudo yum update -y
-#sudo yum install wget -y
-#sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-#sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-#sudo yum install jenkins java-1.8.0-openjdk-devel -y
-#sudo sed 's/JENKINS_PORT="8080"/JENKINS_PORT="8000"/' /etc/sysconfig/jenkins > /tmp/jenkins8000
-#sudo cp /tmp/jenkins8000 /etc/sysconfig/jenkins
-#echo "Jenkins Admin Password is :"
-#sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+sudo rpm -ivh http://yum.puppet.com/puppet6/puppet6-release-el-7.noarch.rpm && sudo yum install puppet-agent -y
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo /opt/puppetlabs/puppet/bin/puppet module install puppet-jenkins --version 2.0.0
+sudo cp /tmp/site.pp /etc/puppetlabs/code/environments/production/manifests/
+sudo /opt/puppetlabs/puppet/bin/puppet apply /etc/puppetlabs/code/environments/production/manifests/site.pp
+#sudo cp jenkins /etc/sysconfig/jenkins
+#sudo systemctl restart jenkins
+

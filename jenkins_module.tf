@@ -101,6 +101,16 @@ resource "aws_instance" "puppet" {
     destination = "/tmp/jenkins.sh"
   }
 
+  provisioner "file" {
+    source      = "files/jenkins"
+    destination = "/tmp/jenkins"
+  }
+
+  provisioner "file" {
+    source      = "files/site.pp"
+    destination = "/tmp/site.pp"
+  }
+
 #  provisioner "remote-exec" {
 #    inline = [
 #      "sudo chmod 770 /tmp/jenkins.sh",
