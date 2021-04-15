@@ -111,13 +111,13 @@ resource "aws_instance" "puppet" {
     destination = "/tmp/site.pp"
   }
 
-#  provisioner "remote-exec" {
-#    inline = [
-#      "sudo chmod 770 /tmp/jenkins.sh",
-#      "sudo /tmp/jenkins.sh",
-#      "sudo systemctl restart jenkins"
-#    ]
-#  }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo chmod 770 /tmp/jenkins.sh",
+      "sudo /tmp/jenkins.sh",
+      "sudo systemctl restart jenkins"
+    ]
+  }
 }
 
 ##################################################################################

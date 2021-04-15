@@ -13,6 +13,7 @@ node 'default' {
 
     config_hash => {
        'HTTP_PORT' => { 'value' => '8000'},
+       'JENKINS_PORT' => { 'value' => '8000'}
     },
 
 # cli disabled because module fails probably due to backward comapitbility but not needed for this exercise
