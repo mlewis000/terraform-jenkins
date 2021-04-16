@@ -44,7 +44,7 @@ terraform apply "jenkins.tfplan"
 '''
 
 
-# No log on to jenkins via the browser.
+# Now log on to jenkins via the browser.
 # Make a note of the ouputs of the external DNS name of teh EC2 RHEL 8 server and paste into your browser.
 # STEP 4.  - OUTPUT IS SIMILAR TO BELOW.
 
